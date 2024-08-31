@@ -8,4 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/Start.unity
+    guid: 4a19b17ae8a347c4da8dc93c869d81ab
+  - enabled: 1
+    path: Assets/Scenes/Tekumon.unity
+    guid: bc69b19659e3fcd43bbf4b3026991045
   m_configObjects: {}
