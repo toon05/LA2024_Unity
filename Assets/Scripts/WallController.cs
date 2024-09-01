@@ -16,6 +16,13 @@ public class WallController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position -= transform.forward * speed * Time.deltaTime;
+        if (this.gameObject.name == "Walls 1(Clone)")
+        {
+            transform.position -= transform.forward * speed * Time.deltaTime;
+        }
+        else
+        {
+            transform.position += transform.forward * speed * Time.deltaTime;
+        }
     }
 }

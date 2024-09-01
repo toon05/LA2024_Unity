@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class WallCreator : MonoBehaviour
 {
-    [SerializeField] private GameObject wall;
+    [SerializeField] private GameObject[] walls;
+    int wallNumber;
     float timer = 0;
     int interval = 2;
 
@@ -21,7 +22,9 @@ public class WallCreator : MonoBehaviour
         if (timer >= interval)
         {
             transform.position = new Vector3(0, Random.Range(-1, 2), 6);
-            Instantiate(wall, transform.position, Quaternion.identity);
+
+            wallNumber = Random.Range(0, walls.Length);
+            Instantiate(walls[wallNumber], transform.position, transform.rotation);
             timer = 0;
         }
     }

@@ -5,10 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class Title : MonoBehaviour
 {
-    [SerializeField] private SceneObject gameScene;
+    [SerializeField] private SceneObject [] stages;
 
-    public void OnClickStartButton()
+    public void OnClickStartButton( int index )
     {
-        SceneManager.LoadScene(gameScene);
+        SceneManager.LoadScene(stages[index]);
     }
 }

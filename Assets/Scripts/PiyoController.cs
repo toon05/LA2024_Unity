@@ -1,11 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PiyoController : MonoBehaviour
 {
     int score = 0;
     private Rigidbody playerRigidbody;
+    [SerializeField] private Text scoreText;
+    [SerializeField] private GameObject gameOverUI;
+    [SerializeField] private Text gameOverScoreText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,11 +29,13 @@ public class PiyoController : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         Debug.Log("Game Over");
+        gameOverScoreText.text = "Score: " + score.ToString();
+        gameOverUI.SetActive(true);
     }
 
     private void OnTriggerEnter(Collider other)
     {
         score++;
-        Debug.Log("Score: " + score);
+        scoreText.text = "Score: " + score.ToString();
     }
 }

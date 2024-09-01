@@ -11,12 +11,14 @@ public class PlayerController : MonoBehaviour
     Rigidbody playerRigidbody;
 
     [SerializeField] private SceneObject titleScene;
-    [SerializeField] private SceneObject gameScene;
+    [SerializeField] private SceneObject [] stages;
 
     [SerializeField] private GameObject goalPanel;
     [SerializeField] private GameObject gameoverPanel;
     private bool isGameOver = false;
     public bool isGameClear = false;
+    public bool isRotate = false;
+    bool isEchoed = false;
 
     // Start is called before the first frame update
     void Start()
@@ -53,6 +55,14 @@ public class PlayerController : MonoBehaviour
         {
             transform.position += new Vector3(playerSpeed * Time.deltaTime, 0, 0);
         }
+
+        if (isRotate)
+        {
+            if (!isEchoed && this.transform.position.x >= -10)
+            {
+                isEchoed = true;
+            }
+        }
     }
 
     void OnCollisionEnter(Collision collision)
@@ -64,9 +74,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void OnClickRestartButton()
+    public void OnClickRestartButton(int index)
     {
-        SceneManager.LoadScene(gameScene);
+        SceneManager.LoadScene(stages[index]);
     }
 
     public void OnClickTitleButton()

@@ -9,9 +9,21 @@ EditorBuildSettings:
     path: Assets/Scenes/Title.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/Scenes/Main.unity
+    path: Assets/Scenes/Main/Main.unity
     guid: 128c5830fbdb37a4da788642be79842b
   - enabled: 1
     path: Assets/Scenes/Goal.unity
     guid: a52d7f91011058a4eb421a97359d456c
+  - enabled: 1
+    path: Assets/Scenes/Main/Main 1.unity
+    guid: 02a5884d78588e946b652eba8c59a784
+  - enabled: 1
+    path: Assets/Scenes/Main/Main 2.unity
+    guid: 3c36b47ed0b05ac48a127d225899063f
+  - enabled: 1
+    path: Assets/Scenes/Piyopiyo.unity
+    guid: 809593b37df44884e8bc6da751c5e15c
+  - enabled: 1
+    path: Assets/Scenes/PiyoTitle.unity
+    guid: e3c163a265aaa5247812348a6fe7f3ba
   m_configObjects: {}
