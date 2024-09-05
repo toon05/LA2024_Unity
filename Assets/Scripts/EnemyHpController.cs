@@ -5,10 +5,13 @@ using UnityEngine;
 public class EnemyHpController : MonoBehaviour
 {
     int enemyHp = 3;
+    [SerializeField] private GameObject player;
+    private Raycaster raycaster;
     // Start is called before the first frame update
     void Start()
     {
-        
+        player = GameObject.FindGameObjectWithTag("Player");
+        raycaster = player.GetComponent<Raycaster>();
     }
 
     // Update is called once per frame
@@ -22,6 +25,7 @@ public class EnemyHpController : MonoBehaviour
         enemyHp--;
         if (enemyHp <= 0)
         {
+            raycaster.killCountUp();
             Destroy(gameObject);
         }
     }

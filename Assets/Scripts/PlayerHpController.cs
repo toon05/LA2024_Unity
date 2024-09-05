@@ -24,7 +24,7 @@ public class PlayerHpController : MonoBehaviour
         if (playerHp <= 0)
         {
             gameoverPanel.SetActive(true);
-            Destroy(gameObject);
+            // Destroy(gameObject);
         }
     }
 }
