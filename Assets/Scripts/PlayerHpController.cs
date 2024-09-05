@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerHpController : MonoBehaviour
 {
-    int playerHp = 1;
-    [SerializeField] private GameObject gameoverPanel;
+    int playerHp = 3;
+    [SerializeField] Text hpText;
+    private string gameOverScene = "GameOver";
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +18,7 @@ public class PlayerHpController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        hpText.text = "HP: " + playerHp;
     }
 
     void PlayerDamage()
@@ -23,8 +26,7 @@ public class PlayerHpController : MonoBehaviour
         playerHp--;
         if (playerHp <= 0)
         {
-            gameoverPanel.SetActive(true);
-            // Destroy(gameObject);
+            SceneManager.LoadScene(gameOverScene);
         }
     }
 }
