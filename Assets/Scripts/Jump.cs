@@ -5,9 +5,11 @@ using UnityEngine;
 public class Jump : MonoBehaviour
 {
     private float jumpForce = 10f;
-    private Rigidbody rb;
+    private Rigidbody playerRb;
+    private Rigidbody targetRb;
     private bool isGrounded = false;
 
+    [SerializeField] private int index;
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject target;
     private Renderer playerRenderer;
@@ -15,7 +17,8 @@ public class Jump : MonoBehaviour
 
     void Start()
     {
-        rb = this.GetComponent<Rigidbody>();
+        playerRb = this.GetComponent<Rigidbody>();
+        targetRb = target.GetComponent<Rigidbody>();
         playerRenderer = player.GetComponent<Renderer>();
         targetRenderer = target.GetComponent<Renderer>();
         RandomColor(playerRenderer);
@@ -28,7 +31,7 @@ public class Jump : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             // ジャンプはY軸方向に力を加える
-            rb.AddForce(new Vector3(0, jumpForce, 0), ForceMode.Impulse);
+            playerRb.AddForce(new Vector3(0, jumpForce, 0), ForceMode.Impulse);
             isGrounded = false; // ジャンプしたら空中状態にする
         }
     }
@@ -48,8 +51,24 @@ public class Jump : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Target"))
         {
-            playerRenderer.material.color = targetRenderer.material.color;
-            RandomColor(targetRenderer);
+            MainFunction(playerRenderer, targetRenderer, index);
+        }
+    }
+
+    void MainFunction(Renderer pRenderer, Renderer tRenderer, int index)
+    {
+        if (index == 0)
+        {
+            pRenderer.material.color = tRenderer.material.color;
+            RandomColor(tRenderer);
+        }
+        else if (index == 1)
+        {
+            targetRb.AddForce(new Vector3(0, 5.0f, 0), ForceMode.Impulse);
+        }
+        else if (index == 2)
+        {
+            target.SetActive(false);
         }
     }
 }
