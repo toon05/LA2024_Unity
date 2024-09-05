@@ -6,12 +6,14 @@ using Cysharp.Threading.Tasks;
 public class HelloWorld : MonoBehaviour
 {
     string[] message;
+    int age = 15;
+    int mentorAge = 22;
 
     // Start is called before the first frame update
     void Start()
     {
         // 配列を正しい形式で初期化
-        message = new string[] { "Hello", "World", "Life", "is", "Tech!" };
+        message = new string[] { "Hello", "World", "Life", "is", "Tech!" , (age + mentorAge).ToString()};
 
         // 非同期メソッドの呼び出し
         LogMessage().Forget();
