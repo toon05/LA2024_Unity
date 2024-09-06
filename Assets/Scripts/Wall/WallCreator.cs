@@ -5,6 +5,7 @@ using UnityEngine;
 public class WallCreator : MonoBehaviour
 {
     public GameObject[] wallPrefabs;
+    int wallNum;
 
     float timer = 0;
     int interval = 3;
@@ -22,7 +23,9 @@ public class WallCreator : MonoBehaviour
         if (timer >= interval)
         {
             transform.position = new Vector3(0, Random.Range(-1.0f, 2.0f), 6);
-            Instantiate(wallPrefabs[Random.Range(0, wallPrefabs.Length)], transform.position, transform.rotation);
+
+            wallNum = Random.Range(0, wallPrefabs.Length);
+            Instantiate(wallPrefabs[wallNum], transform.position, transform.rotation);
             timer = 0;
         }
     }

@@ -1,12 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
     int score = 0;
     Rigidbody playerRigidbody;
     AudioSource audioSource;
+
+    [SerializeField] Text scoreText;
+    [SerializeField] SceneObject gameOverScene;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,12 +31,18 @@ public class PlayerController : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
-        Debug.Log("Game Over");
+        GameOver();
     }
 
     void OnTriggerEnter(Collider other)
     {
         score++;
         Debug.Log("Score: " + score);
+        scoreText.text = "Score: " + score;
+    }
+
+    void GameOver()
+    {
+        SceneManager.LoadScene(gameOverScene);
     }
 }

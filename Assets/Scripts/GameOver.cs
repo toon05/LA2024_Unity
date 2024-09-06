@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameStarter : MonoBehaviour
+public class GameOver : MonoBehaviour
 {
-    [SerializeField] SceneObject gameScene;
+    [SerializeField] SceneObject[] sceneObjects;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,8 +18,8 @@ public class GameStarter : MonoBehaviour
         
     }
 
-    public void StartGame()
+    public void MoveScene(int index)
     {
-        SceneManager.LoadScene(gameScene);
+        SceneManager.LoadScene(sceneObjects[index]);
     }
 }
