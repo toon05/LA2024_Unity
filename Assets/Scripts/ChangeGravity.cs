@@ -9,11 +9,15 @@ public class ChangeGravity : MonoBehaviour
     private Rigidbody playerRigidbody;
     private bool isReverse = false;
 
+    [SerializeField] private GameObject GameManager;
+    private GameManager gameManager;
+
     // Use this for initialization
     private void Start () 
     {
         playerRigidbody = this.GetComponent<Rigidbody>();
         playerRigidbody.useGravity = false; //最初にrigidBodyの重力を使わなくする
+        gameManager = GameManager.GetComponent<GameManager>();
     }
 
     void Update()
@@ -37,7 +41,14 @@ public class ChangeGravity : MonoBehaviour
 
     private void FixedUpdate () 
     {
-        SetLocalGravity ( localGravity ); //重力をAddForceでかけるメソッドを呼ぶ。FixedUpdateが好ましい。
+        if (gameManager.isGameOver)
+        {
+            SetLocalGravity ( new Vector3 (0, 0, 0) );
+        }
+        else
+        {
+            SetLocalGravity ( localGravity );
+        }
     }
 
     private void SetLocalGravity( Vector3 gravity )

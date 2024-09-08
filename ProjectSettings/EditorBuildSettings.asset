@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Title.unity
+    guid: e691aefe39e055c4b91fbe78af65bb73
+  - enabled: 1
+    path: Assets/Scenes/GravitySwitch.unity
+    guid: a9a4993105708614a91c5d89859dc7c8
   m_configObjects: {}
