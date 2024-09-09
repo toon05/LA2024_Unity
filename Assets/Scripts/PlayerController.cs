@@ -75,7 +75,7 @@ public class PlayerController : MonoBehaviour
                     if (Mathf.Abs(contact.normal.y) < 0.1f)
                     {
                         // 側面での衝突が検知された場合の処理
-                        Debug.Log("Cubeの側面に衝突しました！");
+                        // Debug.Log("Cubeの側面に衝突しました！");
                         GameOver();
                     }
                 }
@@ -89,7 +89,7 @@ public class PlayerController : MonoBehaviour
                     if (Mathf.Abs(contact.normal.y) < 0.1f)
                     {
                         // 側面での衝突が検知された場合の処理
-                        Debug.Log("Cubeの側面に衝突しました！");
+                        // Debug.Log("Cubeの側面に衝突しました！");
                         GameOver();
                     }
                 }
